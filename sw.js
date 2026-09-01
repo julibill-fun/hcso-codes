@@ -1,4 +1,4 @@
-const CACHE = "hcso-codes-v5";
+const CACHE = "hcso-codes-v6";
 const ASSETS = [
   "./",
   "./index.html",
