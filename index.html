@@ -210,7 +210,6 @@
   <div id="toast" role="status" aria-live="polite"></div>
   <script>
     const CATS = [
-      { id: "all", label: "All" },
       { id: "signal", label: "Signals" },
       { id: "ten", label: "10-codes" },
       { id: "squad", label: "Squads" },
@@ -494,7 +493,7 @@
       toast._t = setTimeout(() => el.classList.remove("on"), ms || 4000);
     }
 
-    let cat = "all";
+    let cat = "signal";
     let favs = new Set(JSON.parse(localStorage.getItem("hcso-favs") || "[]"));
     const theme = localStorage.getItem("hcso-theme") || "dark";
     document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
@@ -560,7 +559,7 @@
       const query = qEl.value;
       return DATA.filter((r) => {
         if (cat === "fav") return favs.has(String(r.id)) && match(r, query);
-        if (cat !== "all" && r.cat !== cat) return false;
+        if (r.cat !== cat) return false;
         return match(r, query);
       });
     }
@@ -697,7 +696,7 @@
           n = payload.items.length;
           try { localStorage.setItem("hcso-codes-cache", JSON.stringify(payload)); } catch (_) {}
         }
-        const cache = await caches.open("hcso-codes-v7");
+        const cache = await caches.open("hcso-codes-v8");
         for (const f of APP_FILES) {
           try {
             const res = await fetch("./" + f + "?fresh=" + bust, { cache: "no-store" });
