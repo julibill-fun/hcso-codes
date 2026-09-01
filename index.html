@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c1410">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="HCSO Codes">
+  <meta name="description" content="Searchable Hillsborough County Sheriff's Office signal codes, 10-codes, squads, and districts.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="icon-192.png" type="image/png">
+  <title>HCSO Codes</title>
+  <style>
+    :root {
+      --bg: #0c1410;
+      --bg2: #121b16;
+      --paper: #18221c;
+      --ink: #e7eee4;
+      --muted: #8b9a88;
+      --line: #2a3830;
+      --gold: #c5a35a;
+      --gold-dim: rgba(197,163,90,.16);
+      --green: #3d6b4f;
+      --code: #b7d4a8;
+      --danger: #d07162;
+      --star: #c5a35a;
+      --safe-t: env(safe-area-inset-top);
+      --safe-b: env(safe-area-inset-bottom);
+      --font: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+    [data-theme="light"] {
+      --bg: #f3efe4;
+      --bg2: #ebe6d8;
+      --paper: #fffdf6;
+      --ink: #1a221c;
+      --muted: #5d6a5c;
+      --line: #d5cebc;
+      --gold: #8a6a28;
+      --gold-dim: rgba(138,106,40,.12);
+      --code: #1f4a32;
+      --danger: #a33d32;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); }
+    body {
+      font-family: var(--sans);
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      text-rendering: optimizeLegibility;
+    }
+    header.app {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      padding: calc(10px + var(--safe-t)) 16px 12px;
+    }
+    .brand {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      margin-bottom: 10px;
+    }
+    .brand h1 {
+      font-family: var(--font);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      margin: 0;
+    }
+    .brand h1 span { color: var(--gold); font-weight: 500; }
+    .brand .meta { color: var(--muted); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+    .tools { display: flex; gap: 6px; }
+    button.icon {
+      width: 44px; height: 44px; border: 1px solid var(--line); background: var(--paper);
+      color: var(--ink); border-radius: 10px; font-size: 1rem; cursor: pointer;
+    }
+    .search-wrap { position: relative; }
+    #q {
+      width: 100%; height: 48px; border-radius: 12px;
+      border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+      font: 16px/1.2 var(--sans); padding: 0 44px 0 14px;
+      outline: none;
+    }
+    #q:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
+    #clear {
+      position: absolute; right: 4px; top: 2px; width: 44px; height: 44px;
+      border: 0; background: transparent; color: var(--muted); font-size: 1.2rem; cursor: pointer;
+    }
+    .chips {
+      display: flex; gap: 6px; overflow-x: auto; margin-top: 10px;
+      padding-bottom: 2px; -webkit-overflow-scrolling: touch;
+    }
+    .chips button {
+      flex: 0 0 auto; height: 36px; padding: 0 12px; border-radius: 999px;
+      border: 1px solid var(--line); background: transparent; color: var(--muted);
+      font: 600 .78rem/1 var(--sans); letter-spacing: .04em; text-transform: uppercase;
+      cursor: pointer;
+    }
+    .chips button.on { background: var(--gold); color: #111; border-color: var(--gold); }
+    main { padding: 8px 12px calc(28px + var(--safe-b)); max-width: 720px; margin: 0 auto; }
+    .count { color: var(--muted); font-size: .78rem; padding: 8px 4px 6px; }
+    .row {
+      display: grid; grid-template-columns: auto 1fr auto;
+      gap: 10px; align-items: start;
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 12px; padding: 12px 12px 12px 14px; margin: 0 0 8px;
+      cursor: pointer;
+    }
+    .row:active { transform: scale(.995); }
+    .code {
+      font-family: var(--mono); font-weight: 700; font-size: .95rem;
+      color: var(--code); min-width: 4.6rem; padding-top: 2px;
+    }
+    .body .title { font-weight: 650; font-size: .95rem; }
+    .body .sub { color: var(--muted); font-size: .8rem; margin-top: 3px; line-height: 1.35; }
+    .tag {
+      font-size: .62rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--line); padding: 3px 6px; border-radius: 6px;
+      align-self: start;
+    }
+    .fav { border: 0; background: transparent; color: var(--muted); font-size: 1.15rem; width: 36px; height: 36px; cursor: pointer; }
+    .fav.on { color: var(--star); }
+    .detail {
+      display: none; grid-column: 1 / -1;
+      border-top: 1px solid var(--line); margin-top: 8px; padding-top: 10px;
+      color: var(--muted); font-size: .85rem; line-height: 1.45;
+    }
+    .row.open .detail { display: block; }
+    .detail a { color: var(--gold); }
+    .hint {
+      margin: 18px 4px; color: var(--muted); font-size: .78rem; line-height: 1.5;
+    }
+    .sheet {
+      display: none; position: fixed; inset: 0; z-index: 40;
+      background: rgba(0,0,0,.5); padding: calc(20px + var(--safe-t)) 16px calc(20px + var(--safe-b));
+    }
+    .sheet.on { display: block; }
+    .sheet .card {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
+      padding: 18px; max-width: 480px; margin: 0 auto; color: var(--ink);
+    }
+    .sheet h2 { font-family: var(--font); margin: 0 0 10px; font-size: 1.2rem; }
+    .sheet ol { margin: 0; padding-left: 1.2rem; }
+    .sheet li { margin: 8px 0; }
+    .empty { text-align: left; color: var(--muted); padding: 28px 8px; }
+    .empty strong { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <header class="app">
+    <div class="brand">
+      <div>
+        <h1>HCSO <span>Codes</span></h1>
+        <div class="meta">Hillsborough County · field reference</div>
+      </div>
+      <div class="tools">
+        <button class="icon" id="theme" type="button" aria-label="Toggle theme">◐</button>
+        <button class="icon" id="install" type="button" aria-label="Install on iPhone">+</button>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input id="q" type="search" enterkeyhint="search" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Search 10-8, 380I, Alpha, Ruskin…">
+      <button id="clear" type="button" aria-label="Clear">×</button>
+    </div>
+    <div class="chips" id="chips"></div>
+  </header>
+  <main>
+    <div class="count" id="count"></div>
+    <div id="list"></div>
+    <p class="hint">Public CAD / RadioReference listings — not a live SOP. HCSO covers unincorporated Hillsborough only. Street lookup: <a href="http://gis.hcso.tampa.fl.us/publicgis/boundaries/" style="color:var(--gold)">district map</a>. Emergency 911 · non-emergency 813-247-8200.</p>
+  </main>
+  <div class="sheet" id="sheet">
+    <div class="card">
+      <h2>Add to iPhone</h2>
+      <ol>
+        <li>Open this page in <strong>Safari</strong> (not Chrome).</li>
+        <li>Tap the Share button (square with arrow).</li>
+        <li>Scroll and tap <strong>Add to Home Screen</strong>.</li>
+        <li>Name it <strong>HCSO Codes</strong> → Add.</li>
+      </ol>
+      <p style="color:var(--muted);font-size:.85rem;margin:12px 0 0">Works offline after the first load. Same Wi‑Fi as this computer if you used the local address.</p>
+      <button class="icon" type="button" id="closeSheet" style="width:100%;margin-top:14px;height:44px">Close</button>
+    </div>
+  </div>
+  <script>
+    const CATS = [
+      { id: "all", label: "All" },
+      { id: "signal", label: "Signals" },
+      { id: "ten", label: "10-codes" },
+      { id: "squad", label: "Squads" },
+      { id: "district", label: "Districts" },
+      { id: "fav", label: "★ Saved" }
+    ];
+
+    const dij = (base, name) => [
+      { cat: "signal", code: base + "D", title: name + " — delayed", tags: [name, "delayed"] },
+      { cat: "signal", code: base + "I", title: name + " — in progress", tags: [name, "in progress"] },
+      { cat: "signal", code: base + "J", title: name + " — just occurred", tags: [name, "just occurred", "JO"] }
+    ];
+
+    const DATA = [
+      { cat: "signal", code: "000", title: "Armed / caution" },
+      { cat: "signal", code: "010", title: "DUI", tags: ["drunk driver"] },
+      { cat: "signal", code: "020", title: "Intoxicated pedestrian" },
+      { cat: "signal", code: "030", title: "Traffic crash with injury", tags: ["accident", "PI"] },
+      { cat: "signal", code: "032", title: "Traffic fatality" },
+      { cat: "signal", code: "033", title: "HCSO involved — with injury" },
+      { cat: "signal", code: "034", title: "Hit & run with injury" },
+      { cat: "signal", code: "040", title: "Traffic crash, no injury", tags: ["accident", "PD"] },
+      { cat: "signal", code: "042", title: "Drivers exchange" },
+      { cat: "signal", code: "043", title: "HCSO involved — no injury" },
+      { cat: "signal", code: "044", title: "Hit & run, no injury" },
+      { cat: "signal", code: "050", title: "Murder / manslaughter" },
+      { cat: "signal", code: "060", title: "Escape prisoner / JOC" },
+      { cat: "signal", code: "061", title: "Escape prisoner — delayed" },
+      { cat: "signal", code: "070", title: "Dead person" },
+      { cat: "signal", code: "080", title: "Missing juvenile — endangered" },
+      { cat: "signal", code: "081", title: "Missing juvenile — runaway" },
+      { cat: "signal", code: "082", title: "Missing adult" },
+      { cat: "signal", code: "083", title: "Attempt pickup missing person" },
+      { cat: "signal", code: "090", title: "Lost / stolen tag" },
+      { cat: "signal", code: "091", title: "Recovered lost / stolen tag" },
+      ...dij("100", "Stolen vehicle"),
+      { cat: "signal", code: "101", title: "Recovered stolen vehicle" },
+      { cat: "signal", code: "110", title: "Abandoned vehicle" },
+      { cat: "signal", code: "120", title: "Reckless driver" },
+      { cat: "signal", code: "121", title: "Reckless off-road vehicle" },
+      { cat: "signal", code: "13P", title: "Suspicious person" },
+      { cat: "signal", code: "13V", title: "Suspicious vehicle" },
+      { cat: "signal", code: "13A", title: "Suspicious article" },
+      { cat: "signal", code: "132", title: "Homeless person" },
+      { cat: "signal", code: "135", title: "Homeland security" },
+      { cat: "signal", code: "139", title: "Homeland — non-response" },
+      { cat: "signal", code: "140", title: "Information" },
+      { cat: "signal", code: "150", title: "Special detail (not off-duty use)" },
+      { cat: "signal", code: "160", title: "Road obstruction" },
+      { cat: "signal", code: "161", title: "Traffic flow / congestion" },
+      { cat: "signal", code: "162", title: "Traffic-control detail" },
+      { cat: "signal", code: "163", title: "Street flooding" },
+      { cat: "signal", code: "164", title: "Street sign / visibility problem" },
+      { cat: "signal", code: "170", title: "Contact message" },
+      { cat: "signal", code: "180", title: "Warrant / capias service" },
+      { cat: "signal", code: "181", title: "Community control check" },
+      { cat: "signal", code: "190", title: "Harassment / obscene phone call" },
+      { cat: "signal", code: "200", title: "Mentally ill person — violent", tags: ["Baker Act"] },
+      { cat: "signal", code: "201", title: "Mentally ill person — nonviolent", tags: ["Baker Act"] },
+      { cat: "signal", code: "202", title: "Ex parte order service" },
+      ...dij("210", "Burglary — business"),
+      ...dij("212", "Burglary — residence"),
+      ...dij("214", "Burglary — vehicle"),
+      ...dij("215", "Burglary — other"),
+      { cat: "signal", code: "220", title: "Disturbance" },
+      { cat: "signal", code: "221", title: "Noise complaint" },
+      { cat: "signal", code: "222", title: "Loud party" },
+      { cat: "signal", code: "223", title: "Discharge firearms" },
+      ...dij("240", "Kidnapping"),
+      { cat: "signal", code: "250", title: "Fire" },
+      { cat: "signal", code: "260", title: "Drowning" },
+      { cat: "signal", code: "270", title: "Prowler" },
+      { cat: "signal", code: "280", title: "Pursuit" },
+      { cat: "signal", code: "281", title: "Pursuit terminated" },
+      { cat: "signal", code: "290", title: "Boat — reckless operation" },
+      ...dij("300", "Theft"),
+      { cat: "signal", code: "302", title: "Theft — gas drive-off" },
+      { cat: "signal", code: "303", title: "Theft — employee" },
+      { cat: "signal", code: "304", title: "Theft — services" },
+      { cat: "signal", code: "305", title: "Theft — mail" },
+      { cat: "signal", code: "306", title: "Theft — identity" },
+      { cat: "signal", code: "307", title: "Theft — shoplifting" },
+      ...dij("310", "Assault / battery"),
+      { cat: "signal", code: "313", title: "Obstruct / oppose law enforcement" },
+      { cat: "signal", code: "320", title: "Suicide attempt" },
+      ...dij("330", "Shooting"),
+      { cat: "signal", code: "340D", title: "Stabbing — delayed" },
+      { cat: "signal", code: "340I", title: "Stabbing — in progress / JO" },
+      { cat: "signal", code: "340J", title: "Stabbing — just occurred" },
+      ...dij("350", "Sexual battery"),
+      { cat: "signal", code: "360", title: "Fight" },
+      { cat: "signal", code: "370", title: "Juvenile trouble" },
+      { cat: "signal", code: "371", title: "Juvenile loitering" },
+      { cat: "signal", code: "373", title: "Juvenile truancy" },
+      ...dij("380", "Domestic"),
+      { cat: "signal", code: "382", title: "Domestic — non-violent" },
+      { cat: "signal", code: "383", title: "Domestic — child custody dispute" },
+      { cat: "signal", code: "384D", title: "Domestic — injunction violation delayed" },
+      { cat: "signal", code: "384I", title: "Domestic — injunction in progress" },
+      { cat: "signal", code: "385", title: "Domestic — injunction service" },
+      { cat: "signal", code: "386", title: "Domestic — stalking" },
+      { cat: "signal", code: "388", title: "Domestic — pick up belongings" },
+      { cat: "signal", code: "390", title: "Neighbor trouble" },
+      ...dij("400", "Criminal mischief"),
+      { cat: "signal", code: "402", title: "Criminal mischief — mailbox" },
+      { cat: "signal", code: "403", title: "Criminal mischief — graffiti" },
+      { cat: "signal", code: "405", title: "Vehicle impound / repo" },
+      ...dij("410", "Robbery — business"),
+      { cat: "signal", code: "911", title: "911 emergency call" },
+      { cat: "signal", code: "950", title: "Refer — Tampa PD", tags: ["TPD"] },
+      { cat: "signal", code: "951", title: "Refer — FHP" },
+      { cat: "signal", code: "952", title: "Refer — Temple Terrace PD", tags: ["TTPD"] },
+      { cat: "signal", code: "953", title: "Refer — Plant City PD", tags: ["PCPD"] },
+      { cat: "signal", code: "954", title: "Refer — USF PD" },
+      { cat: "signal", code: "955", title: "Refer — TIA PD" },
+      { cat: "signal", code: "956", title: "Refer — other agency" },
+      { cat: "signal", code: "957", title: "Refer — CSX railroad" },
+      { cat: "signal", code: "958", title: "Refer — out of county PD" },
+      { cat: "signal", code: "959", title: "Refer — out of county other" },
+      { cat: "signal", code: "960", title: "Refer — county fire/rescue" },
+      { cat: "signal", code: "961", title: "Refer — traffic engineering" },
+      { cat: "signal", code: "962", title: "Refer — county maintenance" },
+      { cat: "signal", code: "963", title: "Refer — DOT" },
+      { cat: "signal", code: "964", title: "Refer — TECO" },
+      { cat: "signal", code: "965", title: "Refer — animal services" },
+      { cat: "signal", code: "966", title: "Refer — communications center" },
+      { cat: "signal", code: "967", title: "Refer — CSO" },
+      { cat: "signal", code: "976", title: "Prisoner pickup (Papa Tango only)" },
+      { cat: "signal", code: "999", title: "Assist other agency" },
+
+      { cat: "ten", code: "10-1", title: "Receiving poorly" },
+      { cat: "ten", code: "10-2", title: "Receiving well" },
+      { cat: "ten", code: "10-3", title: "Stop transmitting" },
+      { cat: "ten", code: "10-4", title: "Acknowledgment / message received" },
+      { cat: "ten", code: "10-5", title: "Relay to" },
+      { cat: "ten", code: "10-6", title: "Busy" },
+      { cat: "ten", code: "10-7", title: "Out of service" },
+      { cat: "ten", code: "10-8", title: "In service" },
+      { cat: "ten", code: "10-9", title: "Repeat" },
+      { cat: "ten", code: "10-10", title: "Out of service at" },
+      { cat: "ten", code: "10-11", title: "Talking rapidly" },
+      { cat: "ten", code: "10-12", title: "Visitors present" },
+      { cat: "ten", code: "10-13", title: "Directed patrol activity" },
+      { cat: "ten", code: "10-14", title: "Search warrant" },
+      { cat: "ten", code: "10-15", title: "Prisoner in custody" },
+      { cat: "ten", code: "10-16", title: "Prisoner pickup at" },
+      { cat: "ten", code: "10-17", title: "Conduct investigation" },
+      { cat: "ten", code: "10-18", title: "ASAP" },
+      { cat: "ten", code: "10-19", title: "Return to station" },
+      { cat: "ten", code: "10-20", title: "Your location" },
+      { cat: "ten", code: "10-21", title: "Call station (phone)" },
+      { cat: "ten", code: "10-22", title: "Disregard" },
+      { cat: "ten", code: "10-23", title: "Stand by" },
+      { cat: "ten", code: "10-24", title: "Trouble — send help" },
+      { cat: "ten", code: "10-25", title: "In contact with" },
+      { cat: "ten", code: "10-26", title: "Message received" },
+      { cat: "ten", code: "10-27", title: "Driver’s license check" },
+      { cat: "ten", code: "10-28", title: "Check registration" },
+      { cat: "ten", code: "10-29", title: "Stolen / wanted check" },
+      { cat: "ten", code: "10-30", title: "Against rules / regs" },
+      { cat: "ten", code: "10-31", title: "In pursuit" },
+      { cat: "ten", code: "10-32", title: "Computer hit" },
+      { cat: "ten", code: "10-33", title: "Emergency traffic" },
+      { cat: "ten", code: "10-35", title: "Confidential info" },
+      { cat: "ten", code: "10-37", title: "Dispatcher on duty" },
+      { cat: "ten", code: "10-38", title: "SRO available" },
+      { cat: "ten", code: "10-39", title: "Message delivered" },
+      { cat: "ten", code: "10-40", title: "Meal break" },
+      { cat: "ten", code: "10-41", title: "Out of service home" },
+      { cat: "ten", code: "10-42", title: "Home" },
+      { cat: "ten", code: "10-43", title: "Any information" },
+      { cat: "ten", code: "10-45", title: "Call by phone" },
+      { cat: "ten", code: "10-46", title: "Urgent" },
+      { cat: "ten", code: "10-48", title: "Did you receive" },
+      { cat: "ten", code: "10-49", title: "Serving warrant / capias" },
+      { cat: "ten", code: "10-50", title: "Traffic stop" },
+      { cat: "ten", code: "10-51", title: "En route" },
+      { cat: "ten", code: "10-52", title: "ETA" },
+      { cat: "ten", code: "10-53", title: "Crime prevention program" },
+      { cat: "ten", code: "10-54", title: "Negative" },
+      { cat: "ten", code: "10-55", title: "Let me speak to" },
+      { cat: "ten", code: "10-56", title: "Meet … at" },
+      { cat: "ten", code: "10-58", title: "Busy — district office" },
+      { cat: "ten", code: "10-59", title: "Busy — vehicle repair" },
+      { cat: "ten", code: "10-60", title: "Motorist assist" },
+      { cat: "ten", code: "10-61", title: "Special detail" },
+      { cat: "ten", code: "10-62", title: "Special watch" },
+      { cat: "ten", code: "10-63", title: "Off-duty detail" },
+      { cat: "ten", code: "10-65", title: "Can you copy" },
+      { cat: "ten", code: "10-66", title: "Cancel" },
+      { cat: "ten", code: "10-67", title: "Serving civil process" },
+      { cat: "ten", code: "10-68", title: "Ex parte service" },
+      { cat: "ten", code: "10-69", title: "Busy — court / depo" },
+      { cat: "ten", code: "10-70", title: "Wrecker" },
+      { cat: "ten", code: "10-71", title: "Ambulance" },
+      { cat: "ten", code: "10-73", title: "Street crimes op" },
+      { cat: "ten", code: "10-74", title: "Busy — radio shop" },
+      { cat: "ten", code: "10-75", title: "Station clear" },
+      { cat: "ten", code: "10-76", title: "Busy — instructing" },
+      { cat: "ten", code: "10-77", title: "Busy — training" },
+      { cat: "ten", code: "10-78", title: "Busy — FTO duties" },
+      { cat: "ten", code: "10-79", title: "Busy — SOC" },
+      { cat: "ten", code: "10-80", title: "COPS neighborhood watch" },
+      { cat: "ten", code: "10-81", title: "COPS business contact" },
+      { cat: "ten", code: "10-82", title: "COPS civic meeting" },
+      { cat: "ten", code: "10-83", title: "COPS community activity" },
+      { cat: "ten", code: "10-84", title: "Out of service — reports" },
+      { cat: "ten", code: "10-85", title: "COPS business check" },
+      { cat: "ten", code: "10-86", title: "COPS citizen contact" },
+      { cat: "ten", code: "10-88", title: "Contact number" },
+      { cat: "ten", code: "10-89", title: "Pager" },
+      { cat: "ten", code: "10-90", title: "Supervisor admin duty" },
+      { cat: "ten", code: "10-91", title: "Supervisor report edit" },
+      { cat: "ten", code: "10-92", title: "Supervisor inspection" },
+      { cat: "ten", code: "10-93", title: "Supervisor CP follow-up" },
+      { cat: "ten", code: "10-94", title: "Send backup" },
+      { cat: "ten", code: "10-97", title: "Arrived on scene" },
+      { cat: "ten", code: "10-98", title: "Completed assignment" },
+      { cat: "ten", code: "10-99", title: "Assist other agency" },
+      { cat: "ten", code: "10-102", title: "Log off digital" },
+
+      { cat: "squad", code: "Alpha", title: "District I patrol squad", detail: "North county. Pair: Bravo. Example: 1Alpha1 = 1st shift, Alpha, zone 1." },
+      { cat: "squad", code: "Bravo", title: "District I patrol squad", detail: "North county. Pair: Alpha." },
+      { cat: "squad", code: "Delta", title: "District II patrol squad", detail: "East county. Pair: Echo." },
+      { cat: "squad", code: "Echo", title: "District II patrol squad", detail: "East county. Pair: Delta." },
+      { cat: "squad", code: "Golf", title: "District III patrol squad", detail: "West county. Pair: Hotel." },
+      { cat: "squad", code: "Hotel", title: "District III patrol squad", detail: "West county. Pair: Golf." },
+      { cat: "squad", code: "Juliet", title: "District IV patrol squad", detail: "South Shore. Pair: Kilo." },
+      { cat: "squad", code: "Kilo", title: "District IV patrol squad", detail: "South Shore. Pair: Juliet." },
+      { cat: "squad", code: "Nora", title: "District V patrol squad", detail: "Central / Brandon–Riverview. Pair: Oscar. Added when Dist V stood up." },
+      { cat: "squad", code: "Oscar", title: "District V patrol squad", detail: "Central / Brandon–Riverview. Pair: Nora." },
+      { cat: "squad", code: "Tango", title: "Street crimes unit" },
+      { cat: "squad", code: "AI", title: "Accident investigator" },
+      { cat: "squad", code: "Xray", title: "DUI investigator (countywide)" },
+      { cat: "squad", code: "SP", title: "Special projects" },
+      { cat: "squad", code: "SO", title: "Aviation" },
+      { cat: "squad", code: "Victor", title: "Vehicle scanner" },
+      { cat: "squad", code: "War", title: "Warrant units", tags: ["Warr"] },
+      { cat: "squad", code: "Marine", title: "Marine unit" },
+      { cat: "squad", code: "Motor", title: "Motorcycle unit" },
+      { cat: "squad", code: "K9", title: "Canine" },
+      { cat: "squad", code: "AlphaTango", title: "Auto theft" },
+      { cat: "squad", code: "Charlie", title: "Corporal (rank in call sign)", detail: "Example: AlphaCharlie1 — corporal, Alpha squad." },
+      { cat: "squad", code: "Sierra", title: "Sergeant (rank in call sign)", detail: "Example: AlphaSierra1 — sergeant, Alpha squad." },
+      { cat: "squad", code: "Lima", title: "Lieutenant (rank in call sign)", detail: "Example: Lima1 — District I lieutenant." },
+      { cat: "squad", code: "Shift 1", title: "0630–1830", detail: "Prefix on unit ID, e.g. 1Alpha1." },
+      { cat: "squad", code: "Shift 2", title: "Varies" },
+      { cat: "squad", code: "Shift 3", title: "1830–0630", detail: "Prefix on unit ID, e.g. 3Alpha1." },
+
+      { cat: "district", code: "I", title: "District I — North",
+        detail: "14102 N. 20th St, Tampa 33613 · 813-247-0600\nCheval, Lutz, Greater Northdale, Lake Magdalene, Pebble Creek, University, Uptown.\nSquads: Alpha, Bravo.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/" },
+      { cat: "district", code: "II", title: "District II — East",
+        detail: "2310 N. Falkenburg Rd, Tampa 33619 · 813-247-8555\nPlant City community station 813-757-3855\nDel Rio, East Lake, Seffner, Thonotosassa, Mango, Dover, Valrico (not Plant City PD).\nSquads: Delta, Echo.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/" },
+      { cat: "district", code: "III", title: "District III — West",
+        detail: "7202 Gunn Hwy, Tampa 33625 · 813-247-0330\nFountain Oaks 813-975-2050 · Town ’n’ Country 813-554-5170\nCarrollwood, Egypt Lake–Leto, Citrus Park, Town ’n’ Country, Westchase, Keystone.\nSquads: Golf, Hotel.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/" },
+      { cat: "district", code: "IV", title: "District IV — South",
+        detail: "508 33rd St SE, Ruskin 33570 · 813-247-0455\nSun City community station 813-242-5515\nSouth of the Alafia: Apollo Beach, Gibsonton, Fish Hawk, Lithia, Wimauma, Sun City Center, Ruskin, southern Riverview, Balm.\nSquads: Juliet, Kilo.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/" },
+      { cat: "district", code: "V", title: "District V — Central",
+        detail: "10128 Windhorst Rd, Tampa 33619 · 813-318-5400\nBloomingdale community station 813-635-8040\nNorth of the Alafia: Palm River–Clair Mel, Progress Village, Orient Park, Brandon, northern Riverview.\nSquads: Nora, Oscar.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/" }
+    ].map((r, i) => ({ id: i, tags: [], ...r }));
+
+    const CAT_LABEL = { signal: "Signal", ten: "10-code", squad: "Squad", district: "District" };
+    const $ = (id) => document.getElementById(id);
+    const qEl = $("q"), listEl = $("list"), countEl = $("count"), chipsEl = $("chips");
+
+    let cat = "all";
+    let favs = new Set(JSON.parse(localStorage.getItem("hcso-favs") || "[]"));
+    const theme = localStorage.getItem("hcso-theme") || "dark";
+    document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+
+    function norm(s) {
+      return String(s).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    }
+    function hay(row) {
+      return [row.code, row.title, row.detail || "", ...(row.tags || [])].join(" ");
+    }
+    function match(row, query) {
+      if (!query) return true;
+      const h = norm(hay(row));
+      const c = norm(row.code).replace(/ /g, "");
+      const tokens = norm(query).split(" ").filter(Boolean);
+      return tokens.every((t) => {
+        const compact = t.replace(/ /g, "");
+        return h.includes(t) || c.includes(compact) || norm(row.code).replace(/ /g, "").includes(compact);
+      });
+    }
+
+    function filtered() {
+      const query = qEl.value;
+      return DATA.filter((r) => {
+        if (cat === "fav") return favs.has(String(r.id)) && match(r, query);
+        if (cat !== "all" && r.cat !== cat) return false;
+        return match(r, query);
+      });
+    }
+
+    function renderChips() {
+      chipsEl.innerHTML = CATS.map((c) =>
+        `<button type="button" data-cat="${c.id}" class="${c.id === cat ? "on" : ""}">${c.label}</button>`
+      ).join("");
+    }
+
+    function render() {
+      const rows = filtered();
+      countEl.textContent = rows.length + " of " + DATA.length;
+      if (!rows.length) {
+        listEl.innerHTML = `<div class="empty"><strong>No matches.</strong><br>Try 10-8, 380I, Lutz, or Alpha.</div>`;
+        return;
+      }
+      listEl.innerHTML = rows.map((r) => `
+        <article class="row" data-id="${r.id}">
+          <div class="code">${escapeHtml(r.code)}</div>
+          <div class="body">
+            <div class="title">${escapeHtml(r.title)}</div>
+            ${r.detail ? `<div class="sub">${escapeHtml(r.detail.split("\n")[0])}</div>` : ""}
+            ${r.detail ? `<div class="detail">${formatDetail(r.detail)}</div>` : ""}
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+            <span class="tag">${CAT_LABEL[r.cat]}</span>
+            <button class="fav ${favs.has(String(r.id)) ? "on" : ""}" data-fav="${r.id}" type="button" aria-label="Save">★</button>
+          </div>
+        </article>`).join("");
+    }
+
+    function formatDetail(d) {
+      return escapeHtml(d).replace(/\n/g, "<br>").replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    }
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    chipsEl.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      cat = b.dataset.cat;
+      renderChips();
+      render();
+    });
+    listEl.addEventListener("click", (e) => {
+      const fav = e.target.closest("[data-fav]");
+      if (fav) {
+        e.stopPropagation();
+        const id = String(fav.dataset.fav);
+        if (favs.has(id)) favs.delete(id); else favs.add(id);
+        localStorage.setItem("hcso-favs", JSON.stringify([...favs]));
+        render();
+        return;
+      }
+      const row = e.target.closest(".row");
+      if (row) row.classList.toggle("open");
+    });
+    qEl.addEventListener("input", render);
+    $("clear").addEventListener("click", () => { qEl.value = ""; qEl.focus(); render(); });
+    $("theme").addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem("hcso-theme", next);
+    });
+    $("install").addEventListener("click", () => $("sheet").classList.add("on"));
+    $("closeSheet").addEventListener("click", () => $("sheet").classList.remove("on"));
+    $("sheet").addEventListener("click", (e) => { if (e.target.id === "sheet") $("sheet").classList.remove("on"); });
+
+    renderChips();
+    render();
+    qEl.focus();
+
+    if ("serviceWorker" in navigator && location.protocol !== "file:") {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    }
+  </script>
+</body>
+</html>

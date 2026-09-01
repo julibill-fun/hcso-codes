@@ -1,0 +1,15 @@
+{
+  "name": "HCSO Codes",
+  "short_name": "HCSO Codes",
+  "description": "Hillsborough County Sheriff's Office signal codes, 10-codes, squads, and districts.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c1410",
+  "theme_color": "#0c1410",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
