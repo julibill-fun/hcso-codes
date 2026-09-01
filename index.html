@@ -27,9 +27,7 @@
       --code: #b7d4a8;
       --danger: #d07162;
       --star: #c5a35a;
-      --safe-t: constant(safe-area-inset-top);
       --safe-t: env(safe-area-inset-top, 0px);
-      --safe-b: constant(safe-area-inset-bottom);
       --safe-b: env(safe-area-inset-bottom, 0px);
       --safe-l: env(safe-area-inset-left, 0px);
       --safe-r: env(safe-area-inset-right, 0px);
@@ -61,21 +59,17 @@
       position: sticky; top: 0; z-index: 20;
       background: var(--bg);
       border-bottom: 1px solid var(--line);
-      padding-top: 0;
+      padding-top: calc(var(--safe-t) + 12px);
       padding-bottom: 8px;
       padding-left: max(12px, var(--safe-l));
       padding-right: max(12px, var(--safe-r));
     }
-    .notch {
-      height: var(--safe-t);
-      min-height: 8px;
-    }
     @media (display-mode: standalone) {
-      .notch { min-height: 54px; }
+      header.app { padding-top: calc(var(--safe-t) + 14px); }
     }
     .brand {
       display: flex; align-items: center; justify-content: space-between; gap: 8px;
-      margin: 16px 0 6px;
+      margin-bottom: 6px;
     }
     .brand h1 {
       font-family: var(--font);
@@ -187,7 +181,6 @@
 </head>
 <body>
   <header class="app">
-    <div class="notch" aria-hidden="true"></div>
     <div class="brand">
       <div>
         <h1>HCSO <span>Codes</span></h1>
@@ -713,7 +706,7 @@
           n = payload.items.length;
           try { localStorage.setItem("hcso-codes-cache", JSON.stringify(payload)); } catch (_) {}
         }
-        const cache = await caches.open("hcso-codes-v10");
+        const cache = await caches.open("hcso-codes-v9");
         for (const f of APP_FILES) {
           try {
             const res = await fetch("./" + f + "?fresh=" + bust, { cache: "no-store" });
