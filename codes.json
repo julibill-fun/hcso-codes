@@ -1,0 +1,1754 @@
+{
+  "updated": "2026-09-01",
+  "count": 263,
+  "items": [
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "000",
+      "title": "Armed / caution"
+    },
+    {
+      "tags": [
+        "drunk driver"
+      ],
+      "cat": "signal",
+      "code": "010",
+      "title": "DUI"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "020",
+      "title": "Intoxicated pedestrian"
+    },
+    {
+      "tags": [
+        "accident",
+        "PI"
+      ],
+      "cat": "signal",
+      "code": "030",
+      "title": "Traffic crash with injury"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "032",
+      "title": "Traffic fatality"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "033",
+      "title": "HCSO involved — with injury"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "034",
+      "title": "Hit & run with injury"
+    },
+    {
+      "tags": [
+        "accident",
+        "PD"
+      ],
+      "cat": "signal",
+      "code": "040",
+      "title": "Traffic crash, no injury"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "042",
+      "title": "Drivers exchange"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "043",
+      "title": "HCSO involved — no injury"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "044",
+      "title": "Hit & run, no injury"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "050",
+      "title": "Murder / manslaughter"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "060",
+      "title": "Escape prisoner / JOC"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "061",
+      "title": "Escape prisoner — delayed"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "070",
+      "title": "Dead person"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "080",
+      "title": "Missing juvenile — endangered"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "081",
+      "title": "Missing juvenile — runaway"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "082",
+      "title": "Missing adult"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "083",
+      "title": "Attempt pickup missing person"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "090",
+      "title": "Lost / stolen tag"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "091",
+      "title": "Recovered lost / stolen tag"
+    },
+    {
+      "tags": [
+        "Stolen vehicle",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "100D",
+      "title": "Stolen vehicle — delayed"
+    },
+    {
+      "tags": [
+        "Stolen vehicle",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "100I",
+      "title": "Stolen vehicle — in progress"
+    },
+    {
+      "tags": [
+        "Stolen vehicle",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "100J",
+      "title": "Stolen vehicle — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "101",
+      "title": "Recovered stolen vehicle"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "110",
+      "title": "Abandoned vehicle"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "120",
+      "title": "Reckless driver"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "121",
+      "title": "Reckless off-road vehicle"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "13P",
+      "title": "Suspicious person"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "13V",
+      "title": "Suspicious vehicle"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "13A",
+      "title": "Suspicious article"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "132",
+      "title": "Homeless person"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "135",
+      "title": "Homeland security"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "139",
+      "title": "Homeland — non-response"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "140",
+      "title": "Information"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "150",
+      "title": "Special detail (not off-duty use)"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "160",
+      "title": "Road obstruction"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "161",
+      "title": "Traffic flow / congestion"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "162",
+      "title": "Traffic-control detail"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "163",
+      "title": "Street flooding"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "164",
+      "title": "Street sign / visibility problem"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "170",
+      "title": "Contact message"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "180",
+      "title": "Warrant / capias service"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "181",
+      "title": "Community control check"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "190",
+      "title": "Harassment / obscene phone call"
+    },
+    {
+      "tags": [
+        "Baker Act"
+      ],
+      "cat": "signal",
+      "code": "200",
+      "title": "Mentally ill person — violent"
+    },
+    {
+      "tags": [
+        "Baker Act"
+      ],
+      "cat": "signal",
+      "code": "201",
+      "title": "Mentally ill person — nonviolent"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "202",
+      "title": "Ex parte order service"
+    },
+    {
+      "tags": [
+        "Burglary — business",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "210D",
+      "title": "Burglary — business — delayed"
+    },
+    {
+      "tags": [
+        "Burglary — business",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "210I",
+      "title": "Burglary — business — in progress"
+    },
+    {
+      "tags": [
+        "Burglary — business",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "210J",
+      "title": "Burglary — business — just occurred"
+    },
+    {
+      "tags": [
+        "Burglary — residence",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "212D",
+      "title": "Burglary — residence — delayed"
+    },
+    {
+      "tags": [
+        "Burglary — residence",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "212I",
+      "title": "Burglary — residence — in progress"
+    },
+    {
+      "tags": [
+        "Burglary — residence",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "212J",
+      "title": "Burglary — residence — just occurred"
+    },
+    {
+      "tags": [
+        "Burglary — vehicle",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "214D",
+      "title": "Burglary — vehicle — delayed"
+    },
+    {
+      "tags": [
+        "Burglary — vehicle",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "214I",
+      "title": "Burglary — vehicle — in progress"
+    },
+    {
+      "tags": [
+        "Burglary — vehicle",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "214J",
+      "title": "Burglary — vehicle — just occurred"
+    },
+    {
+      "tags": [
+        "Burglary — other",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "215D",
+      "title": "Burglary — other — delayed"
+    },
+    {
+      "tags": [
+        "Burglary — other",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "215I",
+      "title": "Burglary — other — in progress"
+    },
+    {
+      "tags": [
+        "Burglary — other",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "215J",
+      "title": "Burglary — other — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "220",
+      "title": "Disturbance"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "221",
+      "title": "Noise complaint"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "222",
+      "title": "Loud party"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "223",
+      "title": "Discharge firearms"
+    },
+    {
+      "tags": [
+        "Kidnapping",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "240D",
+      "title": "Kidnapping — delayed"
+    },
+    {
+      "tags": [
+        "Kidnapping",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "240I",
+      "title": "Kidnapping — in progress"
+    },
+    {
+      "tags": [
+        "Kidnapping",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "240J",
+      "title": "Kidnapping — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "250",
+      "title": "Fire"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "260",
+      "title": "Drowning"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "270",
+      "title": "Prowler"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "280",
+      "title": "Pursuit"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "281",
+      "title": "Pursuit terminated"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "290",
+      "title": "Boat — reckless operation"
+    },
+    {
+      "tags": [
+        "Theft",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "300D",
+      "title": "Theft — delayed"
+    },
+    {
+      "tags": [
+        "Theft",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "300I",
+      "title": "Theft — in progress"
+    },
+    {
+      "tags": [
+        "Theft",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "300J",
+      "title": "Theft — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "302",
+      "title": "Theft — gas drive-off"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "303",
+      "title": "Theft — employee"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "304",
+      "title": "Theft — services"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "305",
+      "title": "Theft — mail"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "306",
+      "title": "Theft — identity"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "307",
+      "title": "Theft — shoplifting"
+    },
+    {
+      "tags": [
+        "Assault / battery",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "310D",
+      "title": "Assault / battery — delayed"
+    },
+    {
+      "tags": [
+        "Assault / battery",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "310I",
+      "title": "Assault / battery — in progress"
+    },
+    {
+      "tags": [
+        "Assault / battery",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "310J",
+      "title": "Assault / battery — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "313",
+      "title": "Obstruct / oppose law enforcement"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "320",
+      "title": "Suicide attempt"
+    },
+    {
+      "tags": [
+        "Shooting",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "330D",
+      "title": "Shooting — delayed"
+    },
+    {
+      "tags": [
+        "Shooting",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "330I",
+      "title": "Shooting — in progress"
+    },
+    {
+      "tags": [
+        "Shooting",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "330J",
+      "title": "Shooting — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "340D",
+      "title": "Stabbing — delayed"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "340I",
+      "title": "Stabbing — in progress / JO"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "340J",
+      "title": "Stabbing — just occurred"
+    },
+    {
+      "tags": [
+        "Sexual battery",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "350D",
+      "title": "Sexual battery — delayed"
+    },
+    {
+      "tags": [
+        "Sexual battery",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "350I",
+      "title": "Sexual battery — in progress"
+    },
+    {
+      "tags": [
+        "Sexual battery",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "350J",
+      "title": "Sexual battery — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "360",
+      "title": "Fight"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "370",
+      "title": "Juvenile trouble"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "371",
+      "title": "Juvenile loitering"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "373",
+      "title": "Juvenile truancy"
+    },
+    {
+      "tags": [
+        "Domestic",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "380D",
+      "title": "Domestic — delayed"
+    },
+    {
+      "tags": [
+        "Domestic",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "380I",
+      "title": "Domestic — in progress"
+    },
+    {
+      "tags": [
+        "Domestic",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "380J",
+      "title": "Domestic — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "382",
+      "title": "Domestic — non-violent"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "383",
+      "title": "Domestic — child custody dispute"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "384D",
+      "title": "Domestic — injunction violation delayed"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "384I",
+      "title": "Domestic — injunction in progress"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "385",
+      "title": "Domestic — injunction service"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "386",
+      "title": "Domestic — stalking"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "388",
+      "title": "Domestic — pick up belongings"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "390",
+      "title": "Neighbor trouble"
+    },
+    {
+      "tags": [
+        "Criminal mischief",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "400D",
+      "title": "Criminal mischief — delayed"
+    },
+    {
+      "tags": [
+        "Criminal mischief",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "400I",
+      "title": "Criminal mischief — in progress"
+    },
+    {
+      "tags": [
+        "Criminal mischief",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "400J",
+      "title": "Criminal mischief — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "402",
+      "title": "Criminal mischief — mailbox"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "403",
+      "title": "Criminal mischief — graffiti"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "405",
+      "title": "Vehicle impound / repo"
+    },
+    {
+      "tags": [
+        "Robbery — business",
+        "delayed"
+      ],
+      "cat": "signal",
+      "code": "410D",
+      "title": "Robbery — business — delayed"
+    },
+    {
+      "tags": [
+        "Robbery — business",
+        "in progress"
+      ],
+      "cat": "signal",
+      "code": "410I",
+      "title": "Robbery — business — in progress"
+    },
+    {
+      "tags": [
+        "Robbery — business",
+        "just occurred",
+        "JO"
+      ],
+      "cat": "signal",
+      "code": "410J",
+      "title": "Robbery — business — just occurred"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "911",
+      "title": "911 emergency call"
+    },
+    {
+      "tags": [
+        "TPD"
+      ],
+      "cat": "signal",
+      "code": "950",
+      "title": "Refer — Tampa PD"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "951",
+      "title": "Refer — FHP"
+    },
+    {
+      "tags": [
+        "TTPD"
+      ],
+      "cat": "signal",
+      "code": "952",
+      "title": "Refer — Temple Terrace PD"
+    },
+    {
+      "tags": [
+        "PCPD"
+      ],
+      "cat": "signal",
+      "code": "953",
+      "title": "Refer — Plant City PD"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "954",
+      "title": "Refer — USF PD"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "955",
+      "title": "Refer — TIA PD"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "956",
+      "title": "Refer — other agency"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "957",
+      "title": "Refer — CSX railroad"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "958",
+      "title": "Refer — out of county PD"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "959",
+      "title": "Refer — out of county other"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "960",
+      "title": "Refer — county fire/rescue"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "961",
+      "title": "Refer — traffic engineering"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "962",
+      "title": "Refer — county maintenance"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "963",
+      "title": "Refer — DOT"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "964",
+      "title": "Refer — TECO"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "965",
+      "title": "Refer — animal services"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "966",
+      "title": "Refer — communications center"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "967",
+      "title": "Refer — CSO"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "976",
+      "title": "Prisoner pickup (Papa Tango only)"
+    },
+    {
+      "tags": [],
+      "cat": "signal",
+      "code": "999",
+      "title": "Assist other agency"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-1",
+      "title": "Receiving poorly"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-2",
+      "title": "Receiving well"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-3",
+      "title": "Stop transmitting"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-4",
+      "title": "Acknowledgment / message received"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-5",
+      "title": "Relay to"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-6",
+      "title": "Busy"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-7",
+      "title": "Out of service"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-8",
+      "title": "In service"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-9",
+      "title": "Repeat"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-10",
+      "title": "Out of service at"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-11",
+      "title": "Talking rapidly"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-12",
+      "title": "Visitors present"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-13",
+      "title": "Directed patrol activity"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-14",
+      "title": "Search warrant"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-15",
+      "title": "Prisoner in custody"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-16",
+      "title": "Prisoner pickup at"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-17",
+      "title": "Conduct investigation"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-18",
+      "title": "ASAP"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-19",
+      "title": "Return to station"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-20",
+      "title": "Your location"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-21",
+      "title": "Call station (phone)"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-22",
+      "title": "Disregard"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-23",
+      "title": "Stand by"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-24",
+      "title": "Trouble — send help"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-25",
+      "title": "In contact with"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-26",
+      "title": "Message received"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-27",
+      "title": "Driver’s license check"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-28",
+      "title": "Check registration"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-29",
+      "title": "Stolen / wanted check"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-30",
+      "title": "Against rules / regs"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-31",
+      "title": "In pursuit"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-32",
+      "title": "Computer hit"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-33",
+      "title": "Emergency traffic"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-35",
+      "title": "Confidential info"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-37",
+      "title": "Dispatcher on duty"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-38",
+      "title": "SRO available"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-39",
+      "title": "Message delivered"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-40",
+      "title": "Meal break"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-41",
+      "title": "Out of service home"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-42",
+      "title": "Home"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-43",
+      "title": "Any information"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-45",
+      "title": "Call by phone"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-46",
+      "title": "Urgent"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-48",
+      "title": "Did you receive"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-49",
+      "title": "Serving warrant / capias"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-50",
+      "title": "Traffic stop"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-51",
+      "title": "En route"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-52",
+      "title": "ETA"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-53",
+      "title": "Crime prevention program"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-54",
+      "title": "Negative"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-55",
+      "title": "Let me speak to"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-56",
+      "title": "Meet … at"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-58",
+      "title": "Busy — district office"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-59",
+      "title": "Busy — vehicle repair"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-60",
+      "title": "Motorist assist"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-61",
+      "title": "Special detail"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-62",
+      "title": "Special watch"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-63",
+      "title": "Off-duty detail"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-65",
+      "title": "Can you copy"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-66",
+      "title": "Cancel"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-67",
+      "title": "Serving civil process"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-68",
+      "title": "Ex parte service"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-69",
+      "title": "Busy — court / depo"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-70",
+      "title": "Wrecker"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-71",
+      "title": "Ambulance"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-73",
+      "title": "Street crimes op"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-74",
+      "title": "Busy — radio shop"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-75",
+      "title": "Station clear"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-76",
+      "title": "Busy — instructing"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-77",
+      "title": "Busy — training"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-78",
+      "title": "Busy — FTO duties"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-79",
+      "title": "Busy — SOC"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-80",
+      "title": "COPS neighborhood watch"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-81",
+      "title": "COPS business contact"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-82",
+      "title": "COPS civic meeting"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-83",
+      "title": "COPS community activity"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-84",
+      "title": "Out of service — reports"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-85",
+      "title": "COPS business check"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-86",
+      "title": "COPS citizen contact"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-88",
+      "title": "Contact number"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-89",
+      "title": "Pager"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-90",
+      "title": "Supervisor admin duty"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-91",
+      "title": "Supervisor report edit"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-92",
+      "title": "Supervisor inspection"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-93",
+      "title": "Supervisor CP follow-up"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-94",
+      "title": "Send backup"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-97",
+      "title": "Arrived on scene"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-98",
+      "title": "Completed assignment"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-99",
+      "title": "Assist other agency"
+    },
+    {
+      "tags": [],
+      "cat": "ten",
+      "code": "10-102",
+      "title": "Log off digital"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Alpha",
+      "title": "District I patrol squad",
+      "detail": "North county. Pair: Bravo. Example: 1Alpha1 = 1st shift, Alpha, zone 1."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Bravo",
+      "title": "District I patrol squad",
+      "detail": "North county. Pair: Alpha."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Delta",
+      "title": "District II patrol squad",
+      "detail": "East county. Pair: Echo."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Echo",
+      "title": "District II patrol squad",
+      "detail": "East county. Pair: Delta."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Golf",
+      "title": "District III patrol squad",
+      "detail": "West county. Pair: Hotel."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Hotel",
+      "title": "District III patrol squad",
+      "detail": "West county. Pair: Golf."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Juliet",
+      "title": "District IV patrol squad",
+      "detail": "South Shore. Pair: Kilo."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Kilo",
+      "title": "District IV patrol squad",
+      "detail": "South Shore. Pair: Juliet."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Nora",
+      "title": "District V patrol squad",
+      "detail": "Central / Brandon–Riverview. Pair: Oscar. Added when Dist V stood up."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Oscar",
+      "title": "District V patrol squad",
+      "detail": "Central / Brandon–Riverview. Pair: Nora."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Tango",
+      "title": "Street crimes unit"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "AI",
+      "title": "Accident investigator"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Xray",
+      "title": "DUI investigator (countywide)"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "SP",
+      "title": "Special projects"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "SO",
+      "title": "Aviation"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Victor",
+      "title": "Vehicle scanner"
+    },
+    {
+      "tags": [
+        "Warr"
+      ],
+      "cat": "squad",
+      "code": "War",
+      "title": "Warrant units"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Marine",
+      "title": "Marine unit"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Motor",
+      "title": "Motorcycle unit"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "K9",
+      "title": "Canine"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "AlphaTango",
+      "title": "Auto theft"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Charlie",
+      "title": "Corporal (rank in call sign)",
+      "detail": "Example: AlphaCharlie1 — corporal, Alpha squad."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Sierra",
+      "title": "Sergeant (rank in call sign)",
+      "detail": "Example: AlphaSierra1 — sergeant, Alpha squad."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Lima",
+      "title": "Lieutenant (rank in call sign)",
+      "detail": "Example: Lima1 — District I lieutenant."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Shift 1",
+      "title": "0630–1830",
+      "detail": "Prefix on unit ID, e.g. 1Alpha1."
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Shift 2",
+      "title": "Varies"
+    },
+    {
+      "tags": [],
+      "cat": "squad",
+      "code": "Shift 3",
+      "title": "1830–0630",
+      "detail": "Prefix on unit ID, e.g. 3Alpha1."
+    },
+    {
+      "tags": [],
+      "cat": "district",
+      "code": "I",
+      "title": "District I — North",
+      "detail": "14102 N. 20th St, Tampa 33613 · 813-247-0600\nCheval, Lutz, Greater Northdale, Lake Magdalene, Pebble Creek, University, Uptown.\nSquads: Alpha, Bravo.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/"
+    },
+    {
+      "tags": [],
+      "cat": "district",
+      "code": "II",
+      "title": "District II — East",
+      "detail": "2310 N. Falkenburg Rd, Tampa 33619 · 813-247-8555\nPlant City community station 813-757-3855\nDel Rio, East Lake, Seffner, Thonotosassa, Mango, Dover, Valrico (not Plant City PD).\nSquads: Delta, Echo.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/"
+    },
+    {
+      "tags": [],
+      "cat": "district",
+      "code": "III",
+      "title": "District III — West",
+      "detail": "7202 Gunn Hwy, Tampa 33625 · 813-247-0330\nFountain Oaks 813-975-2050 · Town ’n’ Country 813-554-5170\nCarrollwood, Egypt Lake–Leto, Citrus Park, Town ’n’ Country, Westchase, Keystone.\nSquads: Golf, Hotel.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/"
+    },
+    {
+      "tags": [],
+      "cat": "district",
+      "code": "IV",
+      "title": "District IV — South",
+      "detail": "508 33rd St SE, Ruskin 33570 · 813-247-0455\nSun City community station 813-242-5515\nSouth of the Alafia: Apollo Beach, Gibsonton, Fish Hawk, Lithia, Wimauma, Sun City Center, Ruskin, southern Riverview, Balm.\nSquads: Juliet, Kilo.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/"
+    },
+    {
+      "tags": [],
+      "cat": "district",
+      "code": "V",
+      "title": "District V — Central",
+      "detail": "10128 Windhorst Rd, Tampa 33619 · 813-318-5400\nBloomingdale community station 813-635-8040\nNorth of the Alafia: Palm River–Clair Mel, Progress Village, Orient Park, Brandon, northern Riverview.\nSquads: Nora, Oscar.\nMap: http://gis.hcso.tampa.fl.us/publicgis/boundaries/"
+    }
+  ]
+}

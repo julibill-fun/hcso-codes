@@ -157,6 +157,16 @@
     .sheet li { margin: 8px 0; }
     .empty { text-align: left; color: var(--muted); padding: 28px 8px; }
     .empty strong { color: var(--ink); }
+    #toast {
+      position: fixed; left: 12px; right: 12px; bottom: calc(16px + var(--safe-b));
+      z-index: 60; display: none;
+      background: var(--gold); color: #111;
+      padding: 12px 14px; border-radius: 10px;
+      font: 650 .85rem/1.35 var(--sans);
+      box-shadow: 0 10px 28px rgba(0,0,0,.4);
+    }
+    #toast.on { display: block; }
+    #refresh.busy { opacity: .5; }
   </style>
 </head>
 <body>
@@ -167,6 +177,7 @@
         <div class="meta" id="net">Hillsborough County · field reference</div>
       </div>
       <div class="tools">
+        <button class="icon" id="refresh" type="button" aria-label="Refresh codes and app">↻</button>
         <button class="icon" id="theme" type="button" aria-label="Toggle theme">◐</button>
         <button class="icon" id="install" type="button" aria-label="Install on iPhone">+</button>
       </div>
@@ -196,6 +207,7 @@
       <button class="icon" type="button" id="closeSheet" style="width:100%;margin-top:14px;height:44px">Close</button>
     </div>
   </div>
+  <div id="toast" role="status" aria-live="polite"></div>
   <script>
     const CATS = [
       { id: "all", label: "All" },
@@ -463,6 +475,24 @@
     const CAT_LABEL = { signal: "Signal", ten: "10-code", squad: "Squad", district: "District" };
     const $ = (id) => document.getElementById(id);
     const qEl = $("q"), listEl = $("list"), countEl = $("count"), chipsEl = $("chips");
+    const RAW_CODES = "https://raw.githubusercontent.com/julibill-fun/hcso-codes/main/codes.json";
+    const APP_FILES = ["codes.json", "index.html", "sw.js", "manifest.webmanifest", "apple-touch-icon.png", "icon-192.png", "icon-512.png"];
+
+    function setData(items) {
+      if (!Array.isArray(items) || !items.length) return false;
+      DATA.splice(0, DATA.length, ...items.map((r, i) => ({ tags: [], ...r, id: i })));
+      render();
+      return true;
+    }
+
+    function toast(msg, ms) {
+      const el = $("toast");
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add("on");
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => el.classList.remove("on"), ms || 4000);
+    }
 
     let cat = "all";
     let favs = new Set(JSON.parse(localStorage.getItem("hcso-favs") || "[]"));
@@ -640,6 +670,60 @@
       localStorage.setItem("hcso-theme", next);
     });
     $("install").addEventListener("click", () => $("sheet").classList.add("on"));
+    $("refresh").addEventListener("click", async () => {
+      const btn = $("refresh");
+      if (btn.classList.contains("busy")) return;
+      if (!navigator.onLine) {
+        toast("Offline — using saved copy");
+        return;
+      }
+      btn.classList.add("busy");
+      toast("Updating from GitHub…", 8000);
+      const bust = Date.now();
+      let codesOk = false;
+      let n = DATA.length;
+      try {
+        let payload = null;
+        try {
+          const raw = await fetch(RAW_CODES + "?t=" + bust, { cache: "no-store" });
+          if (raw.ok) payload = await raw.json();
+        } catch (_) {}
+        if (!payload || !payload.items) {
+          const local = await fetch("./codes.json?fresh=" + bust, { cache: "no-store" });
+          if (local.ok) payload = await local.json();
+        }
+        if (payload && payload.items && setData(payload.items)) {
+          codesOk = true;
+          n = payload.items.length;
+          try { localStorage.setItem("hcso-codes-cache", JSON.stringify(payload)); } catch (_) {}
+        }
+        const cache = await caches.open("hcso-codes-v7");
+        for (const f of APP_FILES) {
+          try {
+            const res = await fetch("./" + f + "?fresh=" + bust, { cache: "no-store" });
+            if (res && res.ok) await cache.put("./" + f, res.clone());
+          } catch (_) {}
+        }
+        if ("serviceWorker" in navigator) {
+          const reg = await navigator.serviceWorker.getRegistration();
+          if (reg) {
+            await reg.update();
+            if (reg.waiting) reg.waiting.postMessage("skip");
+          }
+        }
+        const when = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+        const msg = codesOk
+          ? "Updated from GitHub · " + n + " codes · " + when
+          : "App files refreshed · codebook unchanged · " + when;
+        sessionStorage.setItem("hcso-toast", msg);
+        location.reload();
+        return;
+      } catch (err) {
+        toast("Refresh failed — still using saved copy");
+      } finally {
+        btn.classList.remove("busy");
+      }
+    });
     $("closeSheet").addEventListener("click", () => $("sheet").classList.remove("on"));
     $("sheet").addEventListener("click", (e) => { if (e.target.id === "sheet") $("sheet").classList.remove("on"); });
 
@@ -661,6 +745,23 @@
     renderChips();
     render();
     qEl.focus();
+
+    try {
+      const cached = JSON.parse(localStorage.getItem("hcso-codes-cache") || "null");
+      if (cached && cached.items) setData(cached.items);
+    } catch (_) {}
+    fetch("./codes.json").then((r) => r.ok ? r.json() : null).then((d) => {
+      if (d && d.items) {
+        setData(d.items);
+        try { localStorage.setItem("hcso-codes-cache", JSON.stringify(d)); } catch (_) {}
+      }
+    }).catch(() => {});
+
+    const pendingToast = sessionStorage.getItem("hcso-toast");
+    if (pendingToast) {
+      sessionStorage.removeItem("hcso-toast");
+      toast(pendingToast, 5000);
+    }
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       navigator.serviceWorker.register("./sw.js").then((reg) => {
